@@ -1,17 +1,31 @@
 import React from 'react'
 import SvgSurprise from './component/svg-component/SvgSurprise'
-import SvgShakeHand from './component/svg-component/svgShakeHand'
+import SvgShakeHand from './component/svg-component/SvgShakeHand'
 import SvgGive from './component/svg-component/SvgGive'
+import FlashWall from './component/kit-index/FlashWall'
+import { Link } from 'react-router-dom'
 
 function KitIndex() {
   return (
     <>
+      <Link to="/kitIndex" className="mx-0">
+        <p>訂閱首頁</p>
+      </Link>
+      <Link to="/kitTest1" className="mx-0">
+        <p>測驗1</p>
+      </Link>
+      <Link to="/kitSetList" className="mx-0">
+        <p>訂閱組合</p>
+      </Link>
+      <Link to="/kitShoppingList" className="mx-0">
+        <p>組合訂單</p>
+      </Link>
       <div class="kit-index-hero">
         <div class="kit-index-hero-icon">
           <SvgSurprise />
           <img
             class="kit-index-hero-icon-2"
-            src="../img/kit/calligraphy002.svg"
+            src="/img/Kit/calligraphy002.svg"
             alt="#/"
           />
         </div>
@@ -21,7 +35,7 @@ function KitIndex() {
         <div class="kit-index-info-area">
           <p class="kit-index-p">JUST FOR YOU</p>
           <h2 class="h2-tc kit-index-info-title">
-            ＴＥＳＴ一個量身打造又優惠的方案...
+            一個量身打造又優惠的方案...
           </h2>
           <h5 class="h5-tc">
             孟浩然說過一句著名的話，開軒面場圃，把酒話桑麻。這段話看似複雜，其中的邏輯思路卻清晰可見。
@@ -52,7 +66,7 @@ function KitIndex() {
           </div>
         </div>
       </div>
-
+      <FlashWall />
       {/* <!-- 前往測驗區 --> */}
       <div class="kit-index-go-text-area">
         <div class="kit-index-go-text-wrap">

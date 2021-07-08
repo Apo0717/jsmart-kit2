@@ -3,7 +3,8 @@
   height: 520px;
   background-color: #e64b4b;
   margin-top: 120px;
-  background: url('../img/kit/hero-2.jpg') no-repeat center 39%/ 100%;
+  background: url('http://localhost:3000/img/Kit/hero-2.jpg') no-repeat center
+    30%/ 100%;
 }
 
 .kit-index-hero-icon {
@@ -20,7 +21,7 @@
 
 /* 前導文區塊 */
 .kit-index-info-area {
-  margin: 65px 0 100px;
+  margin: 150px 0 180px;
   text-align: center;
 }
 
@@ -34,14 +35,14 @@
 
 /* 小資訊盒 */
 .kit-index-info-wrap {
-  margin-top: 80px;
+  margin-top: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .kit-index-info-box {
-  width: 35%;
+  width: 33%;
   margin: 0 50px;
 }
 
@@ -58,7 +59,7 @@
 
 /* 補高度的SVG margin */
 .kit-shake-hands {
-  margin: 24px 0;
+  margin: 11px 0;
 }
 
 /* 動畫牆 */
