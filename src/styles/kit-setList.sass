@@ -19,6 +19,9 @@
     top: -20px
     left: 70px
 
+    &-show
+        visibility: visible
+
 .kit-set-img
     width: 250px
     height: 180px
@@ -31,27 +34,22 @@
     transition-duration: 0.4s
 
 
-    &-daily:hover
+    &:hover
         background-color: #fdd2bb
         border: #ffebe0 solid 3px
         transform: scale(1.1)
 
 
-    &-daily:active
+    &-daily
         background-color: #fdd2bb
         border: #ffebe0 solid 3px
         transform: scale(1.1)
-
-
-    &-daily:active .kit-set-ribbon
-        visibility: visible
-
 
     &-ep:active .kit-set-ribbon
         visibility: visible
 
 
-    &-ep:hover
+    &-ep
         background-color: #ffebe0
         border: #fdd2bb solid 3px
         transform: scale(1.1)
