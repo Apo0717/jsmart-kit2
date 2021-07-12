@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Answer() {
+function Answer2() {
   return (
     <>
       {/* <!-- 選項區 --> */}
@@ -28,4 +28,4 @@ function Answer() {
   )
 }
 
-export default Answer
+export default Answer2

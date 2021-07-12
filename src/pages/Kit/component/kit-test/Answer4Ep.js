@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AnswerEp() {
+function Answer4Ep() {
   return (
     <>
       {/* <!-- 選項 --> */}
@@ -27,4 +27,4 @@ function AnswerEp() {
   )
 }
 
-export default AnswerEp
+export default Answer4Ep

@@ -7,6 +7,7 @@ import SvgPanty from '../svg-component/SvgPanty'
 function OrderEpSet() {
   return (
     <>
+    <TiPlus class="TiPlus-r" size="100px" />
       <div class="kit-shopping-list-bg">
         {/* <!-- 刪除鈕 --> */}
         <div class="delete">
@@ -48,26 +49,25 @@ function OrderEpSet() {
           </div>
           <div class="kit-shopping-list-product">
             {/* <!-- 商品圖片區＋PLUS --> */}
-            <div class="kit-shopping-list-product-img">
+            <div class="kit-shopping-list-product-wrap">
               <div class="kit-shopping-list-items-img"></div>
-              <TiPlus />
-              <div class="kit-shopping-list-items-img"></div>
-              <TiPlus />
-              <div class="kit-shopping-list-items-img"></div>
-            </div>
-            {/* <!-- 商品文字區 --> */}
-            <div class="kit-shopping-list-product-text">
               <div class="kit-shopping-list-items-text">
-                <p>21cm衛生棉 ＊3個ＰＰＰＰＰＰＰＰＰ</p>
+                <p>21cm衛生棉 ＊3個</p>
                 <p>25cm衛生棉 ＊3個</p>
               </div>
-              <div class="fake-box"></div>
+            </div>
+            <TiPlus class="TiPlus" size="90px" />
+            <div class="kit-shopping-list-product-wrap">
+              <div class="kit-shopping-list-items-img"></div>
               <div class="kit-shopping-list-items-text">
                 <p>夜用衛生棉 ＊3個</p>
               </div>
-              <div class="fake-box"></div>
+            </div>
+            <TiPlus class="TiPlus" size="90px" />
+            <div class="kit-shopping-list-product-wrap">
+              <div class="kit-shopping-list-items-img"></div>
               <div class="kit-shopping-list-items-text">
-                <p>棉條 ＊3個</p>
+                <p>夜用衛生棉 ＊3個</p>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Step from './component/kit-test/Step'
 import QuestionWall from './component/kit-test/QuestionWall'
-import Answer from './component/kit-test/Answer'
+import Answer1 from './component/kit-test/Answer1'
 
 function KitTest1() {
   return (
@@ -13,7 +13,7 @@ function KitTest1() {
         {/* <!-- 題目 --> */}
         <QuestionWall />
         {/* <!-- 選項區 --> */}
-        <Answer />
+        <Answer1 />
       </div>
       {/* <!-- kit-test --> */}
     </>

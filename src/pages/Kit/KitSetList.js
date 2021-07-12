@@ -2,6 +2,7 @@ import React from 'react'
 import DailySet from './component/kit-setList/DailySet'
 import EpSet from './component/kit-setList/EpSet'
 import BtnGreenBig from './component/kit-setList/BtnGreenBig'
+import { Link } from 'react-router-dom'
 
 function KitSetList() {
   return (
@@ -11,7 +12,14 @@ function KitSetList() {
         <DailySet />
         <hr />
         <EpSet />
-        <BtnGreenBig />
+        <Link
+          to="/kitShoppingList"
+          onClick={() => {
+            ;<BtnGreenBig />
+          }}
+        >
+          <BtnGreenBig />
+        </Link>
       </div>
     </>
   )

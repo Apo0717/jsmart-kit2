@@ -16,8 +16,8 @@ function App() {
       <>
         <Link to="/kitIndex">KIT</Link>
         <Switch>
-          <Route path="/kitIndex">
-            <KitIndex />
+          <Route path="/kitIndex" component={KitIndex}>
+            {/* <KitIndex /> */}
           </Route>
           <Route path="/kitTest1">
             <KitTest1 />
@@ -34,8 +34,8 @@ function App() {
           <Route path="/kitSetList">
             <KitSetList />
           </Route>
-          <Route path="/kitShoppingList">
-            <KitShoppingList />
+          <Route path="/kitShoppingList" component={KitShoppingList}>
+            {/* <KitShoppingList /> */}
           </Route>
           <Route exact path="/">
             <Home />
