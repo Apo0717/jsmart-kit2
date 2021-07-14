@@ -13,6 +13,7 @@ function KitShoppingList() {
   const [shoppingItemEp, setShoppingItemEp] = useState([]) //環保組合商品Cat:4~6
   const [catDay, setCatDay] = useState([]) //日常種類Cat:1~3
   const [catEp, setCatEp] = useState([]) //環保種類Cat:4~6
+  const [handle,setHandle] = useState() //控制下方的元件叉叉
   async function getKitFromServer() {
     // 開啟載入指示
     setDataLoading(true)
@@ -49,11 +50,11 @@ function KitShoppingList() {
     let kitSetItemEp = allData.data.filter(
       (Item) => Item.kitCategory == kitCategoryB
     )
-    // if (kitSetItemEp == null) {
-    // } else {
-    // }
+
     setShoppingItemEp(kitSetItemEp)
     // console.log('filter資料庫哦', kitSetItemEp)
+    //
+    //
     // 設定資料
   }
   async function getKitCatServer() {
@@ -77,6 +78,7 @@ function KitShoppingList() {
     let kitCategoryA = localStorage.getItem('kitCategoryA')
     let kitCategoryB = localStorage.getItem('kitCategoryB')
     console.log('我是分類的資料庫哦', allDataCat)
+    //
     //定義上個set的localStorage == Item.kitCategory
     //相同的話就讓資料出現
     //

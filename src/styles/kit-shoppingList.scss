@@ -201,6 +201,15 @@
 }
 
 /* 按鈕 */
+.kit-dropdown-text-center {
+  text-align: center !important;
+}
+
+.kit-dropdown-text-center:hover {
+  background-color: #fdd2bb !important;
+}
+
+
 .kit-shopping-list-btn {
   display: flex;
   justify-content: center;

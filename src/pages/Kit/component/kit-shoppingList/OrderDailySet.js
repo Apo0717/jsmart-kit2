@@ -1,6 +1,5 @@
 import React from 'react'
 import { TiPlus } from 'react-icons/ti'
-// import { Link } from 'react-router-dom'
 import SummarySmallDay from '../kit-shoppingList/SummarySmallDay'
 
 function OrderDailySet(props) {
@@ -8,7 +7,6 @@ function OrderDailySet(props) {
     shoppingItemDay,
     setShoppingItemDay,
     catDay,
-    setCatDay,
     smallTotalD,
     setSmallTotalD,
   } = props
@@ -83,19 +81,19 @@ function OrderDailySet(props) {
                 className="dropdown-menu"
                 aria-labelledby="dropdownMenuButton"
               >
-                <a className="dropdown-item" href="javascript:;">
+                <a className="dropdown-item kit-dropdown-text-center" href="javascript:;">
                   一個月份
                 </a>
-                <a className="dropdown-item" href="javascript:;">
+                <a className="dropdown-item kit-dropdown-text-center" href="javascript:;">
                   二個月份
                 </a>
-                <a className="dropdown-item" href="javascript:;">
+                <a className="dropdown-item kit-dropdown-text-center" href="javascript:;">
                   三個月份
                 </a>
-                <a className="dropdown-item" href="javascript:;">
+                <a className="dropdown-item kit-dropdown-text-center" href="javascript:;">
                   四個月份
                 </a>
-                <a className="dropdown-item" href="javascript:;">
+                <a className="dropdown-item kit-dropdown-text-center" href="javascript:;">
                   五個月份
                 </a>
               </div>

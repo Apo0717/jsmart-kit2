@@ -77,11 +77,6 @@ function KitSetList() {
         }
       }),
     })
-
-    // setObjEp({
-    //   ...objEp,
-    //   canClick: true,
-    // })
   }
 
   //給環保組合用的函示

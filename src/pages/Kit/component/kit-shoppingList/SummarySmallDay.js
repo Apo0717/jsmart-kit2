@@ -2,11 +2,8 @@ import React, { useEffect } from 'react'
 
 function SummarySmallDay(props) {
   const { shoppingItemDay, smallTotalD, setSmallTotalD } = props
-  // const [sTotal, setSTotal] = useState()
   console.log('說吧你到底是不是被選到的日常組合', shoppingItemDay)
   // 計算總價的函式
-  // const yo = [{ itemPrice: 3 }, { itemPrice: 7 }, { itemPrice: 10 }]
-
   //因為週期的關係，一開始可能陣列裡面沒有值，所以要判斷他是陣列&&有值的時候才行動
   const sum = (Item) => {
     let total = 0
@@ -20,13 +17,6 @@ function SummarySmallDay(props) {
     }
   }
 
-  // const getSmallTotal = () => {
-  //   console.log('誰', props)
-  //   setSmallTotalD(sum(shoppingItemDay))
-  // }
-
-  // console.log('出來吧', sum(yo))
-
   useEffect(() => {
     sum()
   }, [])
@@ -36,8 +26,8 @@ function SummarySmallDay(props) {
       <div className="sale-price-s">
         <div className="set1-total-s">總金額</div>
         <div className="set1-total-box set1-total-box-inlineblock">
-          <div className="set1-total">NT${sum(shoppingItemDay)}</div>
-          <div className="set1-total-red"></div>
+          <div className="set1-total">NT$</div>
+          <div className="set1-total-red">{sum(shoppingItemDay)}</div>
         </div>
         <div>
           <s className="set1-total-box">
