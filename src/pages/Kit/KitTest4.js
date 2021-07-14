@@ -8,7 +8,7 @@
 //   return (
 //     <>
 //       {/* <!-- kit-test --> */}
-//       <div class="container">
+//       <div className="container">
 //         {/* <!-- 最上方的題目進度條 --> */}
 //         <Step />
 //         {/* <!-- 題目 --> */}

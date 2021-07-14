@@ -10,12 +10,12 @@ function EpSet(props) {
         <h6 className="h6-tc">鼓勵想要嘗試的妳</h6>
       </div>
       <div className="kit-set-wrap">
-        {objEp.arr.map((objEp, index) => (
+        {objEp.arr.map((objEp, key) => (
           <div className="kit-set-box">
             <div
               className={'kit-set-img ' + (objEp.click ? 'kit-set-img-ep' : '')}
               onClick={() => {
-                functionB(objEp)
+                functionB(objEp, key)
               }}
             >
               <div

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function GoTestArea() {
   return (
     <>
-      <div class="kit-index-go-text-area">
+      <div className="kit-index-go-text-area">
         <Link
           to="/kitTest1"
           onClick={() => {

@@ -8,7 +8,7 @@ function DailySet(props) {
       {/* <!-- 最上區塊的日常組合TITLE語 --> */}
       <h5 className="h5-tc kit-set-list-title-daily">{objDaily.name}</h5>
       <div className="kit-set-wrap">
-        {objDaily.arr.map((objDaily, index) => (
+        {objDaily.arr.map((objDaily, key) => (
           <div className="kit-set-box">
             {/* click變成true的話，改變classNameName */}
             <div
@@ -17,7 +17,7 @@ function DailySet(props) {
               }
               // 被觸發事件(onClick)後，進行functionA
               onClick={() => {
-                functionA(objDaily)
+                functionA(objDaily,key)
               }}
             >
               <div

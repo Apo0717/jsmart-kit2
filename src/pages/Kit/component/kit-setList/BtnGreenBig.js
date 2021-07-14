@@ -1,9 +1,16 @@
 import React from 'react'
 
-function BtnGreenBig() {
+function BtnGreenBig(props) {
   return (
     <>
-      <button class="btn-soft-green-big">下一步</button>
+      <button
+        className="btn-soft-green-big"
+        onClick={() => {
+          props.goShoppingList()
+        }}
+      >
+        下一步
+      </button>
     </>
   )
 }

@@ -8,18 +8,18 @@ function QuestionWall() {
   return (
     <>
       {/* <!-- 題目 --> */}
-      <div class="kit-test-question-bg">
-        <div class="kit-test-question-img">
-          <div class="kit-test-question-text-area">
-            <div class="kit-test-question-text">
-              <h3 class="h3-en">Q1</h3>
-              <h5 class="h5-tc kit-test-question-text">
+      <div className="kit-test-question-bg">
+        <div className="kit-test-question-img">
+          <div className="kit-test-question-text-area">
+            <div className="kit-test-question-text">
+              <h3 className="h3-en">Q1</h3>
+              <h5 className="h5-tc kit-test-question-text">
                 以每個月白天的平均量來說，
                 <br />
                 我總是使用約多長的生理用品呢？
               </h5>
             </div>
-            <div class="kit-test-question-icon">
+            <div className="kit-test-question-icon">
               <SvgClothPadS />
             </div>
           </div>

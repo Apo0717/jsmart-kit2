@@ -7,27 +7,24 @@ import { Link } from 'react-router-dom'
 function KitSetList() {
   const [objDaily, setObjDaily] = useState({
     name: '一般組合',
-    click: false,
+    key: null,
     arr: [
       {
         name: '日常-量適中',
         span: '衛生棉＋衛生棉條',
         kitCategory: 1,
-        key: 1,
         click: false,
       },
       {
         name: '日常-量多',
         span: '衛生棉＋衛生棉條',
         kitCategory: 2,
-        key: 2,
         click: false,
       },
       {
         name: '戶外派',
         span: '衛生棉條組',
         kitCategory: 3,
-        key: 3,
         click: false,
       },
     ],
@@ -37,38 +34,39 @@ function KitSetList() {
     name: '環保組合加購區',
     //判定 objDaily 按過後才能按這邊
     canClick: false,
-    click: false,
+    key: null,
     arr: [
       {
         name: '布衛生棉',
         span: null,
         kitCategory: 4,
-        key: 4,
         click: false,
       },
       {
         name: '月亮杯',
         span: null,
         kitCategory: 5,
-        key: 5,
         click: false,
       },
       {
         name: '月亮褲',
         span: null,
         kitCategory: 6,
-        key: 6,
         click: false,
       },
     ],
   })
 
   //事件觸發(ex.onClick)了之後要做的動作
-  const functionA = (obj) => {
+  const functionA = (obj, key) => {
+    //obj為物件
+    console.log('obj', obj)
+    //obj在陣列中的索引順序
+    console.log('key', key)
     //ObjDaily被改變
     setObjDaily({
       name: '一般組合',
-      click: true,
+      key: key,
       // e 為 objA.arr 裡的 1 個 {}
       arr: objDaily.arr.map((e) => {
         return {
@@ -87,13 +85,17 @@ function KitSetList() {
   }
 
   //給環保組合用的函示
-  const functionB = (obj) => {
+  const functionB = (obj, key) => {
+    console.log('obj', obj)
+    //obj在陣列中的索引順序
+    console.log('key', key)
+    //ObjDaily被改變
     //ObjDaily被按了objEp才能被選擇
-    if (objDaily.click) {
+    if (objDaily.key !== null) {
       //ObjDaily被改變
       setObjEp({
         name: '環保組合加購區',
-        click: true,
+        key: key,
         // e 為 objA.arr 裡的 1 個 {}
         arr: objEp.arr.map((e) => {
           return {
@@ -115,22 +117,37 @@ function KitSetList() {
     // if 結束
   }
 
-  // 判斷環保組合有無被選取(click)
-  // some 方法為有被選取一個就得 true
-  // const result = objEp.arr.some((e) => e.click === true)
-  // const objC = { keyA:'', keyB:'' }
+  const goShoppingList = () => {
+    // 判斷環保組合有無被選取(key)
+    // some 方法為有被選取一個就得 true
+    const result = objEp.arr.some((e) => e.click === true)
+    console.log('result', result)
+    //objDaily.key 的 key 為 functionA&B 的索引值 key
+    let kitCategoryA = objDaily.arr[objDaily.key].kitCategory
+    console.log('kitCategoryA', kitCategoryA)
+    let kitCategoryB = objEp.arr[objEp.key].kitCategory
+    console.log('kitCategoryB', kitCategoryB)
 
+    localStorage.setItem('kitCategoryA', kitCategoryA)
+    // 如果 result == true 就取得 objC 的值
+    if (result) {
+      localStorage.setItem('kitCategoryB', kitCategoryB)
+    } else {
+      localStorage.setItem('kitCategoryB', null)
+    }
 
-  // 如果 result == true 就取得 objC 的值
-  // const submit = () => {
-  //   if (result) { objC.keyA === objDaily.arr.key
-  //   }
-  // }
+    //比較聰明但現在的我看不清的方法:
+    //let kitCategoryB = result? objEp.arr[objEp.key].kitCategory;null
+    //localStorage.setItem('kitCategoryB', kitCategoryB)
+    //
+    //if else就不用寫
+    //localStorage.setItem('kitCategoryB', null)<<這就不用寫
+  }
 
   return (
     <>
       {/* <!-- kit-setList --> */}
-      <div class="container">
+      <div className="container">
         <DailySet
           functionA={functionA}
           objDaily={objDaily}
@@ -138,13 +155,8 @@ function KitSetList() {
         />
         <hr />
         <EpSet functionB={functionB} objEp={objEp} setObjEp={setObjEp} />
-        <Link
-          to="/kitShoppingList"
-          onClick={() => {
-            ;<BtnGreenBig />
-          }}
-        >
-          <BtnGreenBig />
+        <Link to="/kitShoppingList">
+          <BtnGreenBig goShoppingList={goShoppingList} />
         </Link>
       </div>
     </>
