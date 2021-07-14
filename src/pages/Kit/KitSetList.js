@@ -125,23 +125,20 @@ function KitSetList() {
     //objDaily.key 的 key 為 functionA&B 的索引值 key
     let kitCategoryA = objDaily.arr[objDaily.key].kitCategory
     console.log('kitCategoryA', kitCategoryA)
-    let kitCategoryB = objEp.arr[objEp.key].kitCategory
-    console.log('kitCategoryB', kitCategoryB)
+    let kitCategoryB = ''
+    //判斷鑰匙有沒有被碰過，有點擊才有紀錄
+    if (objEp.key !== null) {
+      kitCategoryB = objEp.arr[objEp.key].kitCategory
+      console.log('kitCategoryB', kitCategoryB)
+    }
 
     localStorage.setItem('kitCategoryA', kitCategoryA)
     // 如果 result == true 就取得 objC 的值
     if (result) {
       localStorage.setItem('kitCategoryB', kitCategoryB)
     } else {
-      localStorage.setItem('kitCategoryB', null)
+      localStorage.removeItem('kitCategoryB')
     }
-
-    //比較聰明但現在的我看不清的方法:
-    //let kitCategoryB = result? objEp.arr[objEp.key].kitCategory;null
-    //localStorage.setItem('kitCategoryB', kitCategoryB)
-    //
-    //if else就不用寫
-    //localStorage.setItem('kitCategoryB', null)<<這就不用寫
   }
 
   return (

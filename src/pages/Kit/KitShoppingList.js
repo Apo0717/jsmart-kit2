@@ -6,12 +6,13 @@ import BtnGreenShopping from './component/kit-shoppingList/BtnGreenShopping'
 
 function KitShoppingList() {
   const [dataLoading, setDataLoading] = useState(false)
-  const [smalltotal, setSmalltotal] = useState()
-  const [total, setTotal] = useState()
-  const [shoppingItemDay, setShoppingItemDay] = useState([])
-  const [shoppingItemEp, setShoppingItemEp] = useState([])
-  const [catDay, setCatDay] = useState([])
-  const [catEp, setCatEp] = useState([])
+  const [smallTotalD, setSmallTotalD] = useState() //日常右上方小總計
+  const [smallTotalE, setSmallTotalE] = useState() //環保右上方小總計
+  const [total, setTotal] = useState() //下方大總計
+  const [shoppingItemDay, setShoppingItemDay] = useState([]) //日常組合商品Cat:1~3
+  const [shoppingItemEp, setShoppingItemEp] = useState([]) //環保組合商品Cat:4~6
+  const [catDay, setCatDay] = useState([]) //日常種類Cat:1~3
+  const [catEp, setCatEp] = useState([]) //環保種類Cat:4~6
   async function getKitFromServer() {
     // 開啟載入指示
     setDataLoading(true)
@@ -85,7 +86,6 @@ function KitShoppingList() {
     )
     setCatDay(kitCatDaily)
     console.log('filter分類資料庫哦', kitCatDaily)
-    console.log('shoppingItem', shoppingItemDay)
     //
     //環保組合
     let kitCatEp = allDataCat.data.filter(
@@ -109,8 +109,13 @@ function KitShoppingList() {
     let kitCategoryA = localStorage.getItem('kitCategoryA')
     console.log('香蕉1號', kitCategoryA)
     let kitCategoryB = localStorage.getItem('kitCategoryB')
-    console.log('香蕉2號', kitCategoryB)
+    console.log('香蕉2號///', kitCategoryB)
   }
+
+  //計算總價的方式
+  //因為週期的關係，一開始可能陣列裡面沒有值，所以要判斷他是陣列&&有值的時候才行動
+
+  // console.log('父元件的總價計算',sum(shoppingItemDay))
 
   return (
     <>
@@ -124,8 +129,8 @@ function KitShoppingList() {
           setShoppingItemDay={setShoppingItemDay}
           catDay={catDay}
           setCatDay={setCatDay}
-          smalltotal={smalltotal}
-          setSmalltotal={setSmalltotal}
+          smallTotalD={smallTotalD}
+          setSmallTotalD={setSmallTotalD}
         />
         {/* <!-- SET 2 --> */}
         <OrderEpSet
@@ -133,8 +138,8 @@ function KitShoppingList() {
           setShoppingItemEp={setShoppingItemEp}
           catEp={catEp}
           setCatEp={setCatEp}
-          smalltotal={smalltotal}
-          setSmalltotal={setSmalltotal}
+          smallTotalE={smallTotalE}
+          setSmallTotalE={setSmallTotalE}
         />
         {/* <!-- 下方總計 --> */}
         <SummaryBig total={total} setTotal={setTotal} />

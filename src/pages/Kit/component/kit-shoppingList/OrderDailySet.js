@@ -1,11 +1,19 @@
 import React from 'react'
 import { TiPlus } from 'react-icons/ti'
-import SummarySmall from '../kit-shoppingList/SummarySmall'
+// import { Link } from 'react-router-dom'
+import SummarySmallDay from '../kit-shoppingList/SummarySmallDay'
 
 function OrderDailySet(props) {
-  const { shoppingItemDay, catDay } = props
+  const {
+    shoppingItemDay,
+    setShoppingItemDay,
+    catDay,
+    setCatDay,
+    smallTotalD,
+    setSmallTotalD,
+  } = props
   //你為什麼在這才能看有沒有進來
-  console.log('恩？', props.shoppingItemDay)
+  console.log('你是陣列嗎', Array.isArray(catDay))
   return (
     <>
       <div className="kit-shopping-list-bg">
@@ -14,18 +22,24 @@ function OrderDailySet(props) {
           <div className="kit-shopping-list-set-title">
             {/* <!-- 組合名稱 --> */}
             <div>
+            {/* 本人(true為存在所以要大於0)＋本人的長度 */}
               {catDay && catDay.length > 0 ? (
-                <div className="set-title">{catDay.kitCategoryName}</div>
+                <div className="set-title">{catDay[0].kitCategoryName}</div>
               ) : (
                 <div className="set-title"></div>
               )}
             </div>
             {/* <!-- 右上方總計區塊 --> */}
-            <SummarySmall />
+            <SummarySmallDay
+              shoppingItemDay={shoppingItemDay}
+              setShoppingItemDay={setShoppingItemDay}
+              smallTotalD={smallTotalD}
+              setSmallTotalD={setSmallTotalD}
+            />
           </div>
           <div className="kit-shopping-list-product">
             {/* <!-- 商品圖片區＋PLUS --> */}
-            {shoppingItemDay.map((Item) => (
+            {shoppingItemDay.map((Item, index) => (
               <div className="d-flex">
                 <div className="kit-shopping-list-product-wrap">
                   <div>
@@ -43,7 +57,11 @@ function OrderDailySet(props) {
                     ></p>
                   </div>
                 </div>
-                <TiPlus className="TiPlus" size="90px" />
+                {index === shoppingItemDay.length - 1 ? (
+                  <div></div>
+                ) : (
+                  <TiPlus className="TiPlus" size="90px" />
+                )}
               </div>
             ))}
           </div>
