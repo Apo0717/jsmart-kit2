@@ -1,26 +1,16 @@
 import React from 'react'
+import LunarPhaseNavbar from '../../component/LunarPhaseNavbar'
+import Footer from '../../component/Footer'
 import SvgSurprise from './component/svg-component/SvgSurprise'
 import SvgShakeHand from './component/svg-component/SvgShakeHand'
 import SvgGive from './component/svg-component/SvgGive'
 import FlashWall from './component/kit-index/FlashWall'
 import GoTestArea from './component/kit-index/GoTestArea'
-import { Link } from 'react-router-dom'
 
 function KitIndex() {
   return (
     <>
-      <Link to="/kitIndex">
-        <p>訂閱首頁</p>
-      </Link>
-      <Link to="/kitTest1">
-        <p>測驗1</p>
-      </Link>
-      <Link to="/kitSetList">
-        <p>訂閱組合</p>
-      </Link>
-      <Link to="/kitShoppingList">
-        <p>組合訂單</p>
-      </Link>
+    <LunarPhaseNavbar />
       <div className="kit-index-hero">
         <div className="kit-index-hero-icon">
           <SvgSurprise />
@@ -70,6 +60,7 @@ function KitIndex() {
       <FlashWall />
       {/* <!-- 前往測驗區 --> */}
       <GoTestArea />
+      <Footer />
     </>
   )
 }

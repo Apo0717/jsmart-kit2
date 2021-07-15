@@ -1,1 +1,10 @@
-@import "./styles/global.scss";
+/* global */
+@import './styles/custom-boostrap.scss';
+@import './styles/style-guide.scss';
+
+/* kit */
+@import './styles/kit-index.scss';
+@import './styles/kit-setList.sass';
+@import './styles/kit-shoppingList.scss';
+@import './styles/kit-test.scss';
+@import './styles/kit.scss';

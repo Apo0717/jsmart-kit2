@@ -14,7 +14,10 @@ function App() {
   return (
     <Router>
       <>
-        <Link to="/kitIndex">KIT</Link>
+        <Link to="/kitIndex">訂閱首頁/</Link>
+        <Link to="/kitTest1">測驗1/</Link>
+        <Link to="/kitSetList">訂閱組合/</Link>
+        <Link to="/kitShoppingList">組合訂單</Link>
         <Switch>
           <Route path="/kitIndex" component={KitIndex}>
             {/* <KitIndex /> */}

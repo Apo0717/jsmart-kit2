@@ -1,7 +1,9 @@
 import React from 'react'
 
 function SummaryBig(props) {
-  const { total, setTotal } = props
+  const { catDay, catEp, smallTotalD, smallTotalE, total } = props
+  //計算總價的方式
+
   return (
     <>
       <div className="kit-shopping-list-total-area">
@@ -12,27 +14,34 @@ function SummaryBig(props) {
             <div className="kit-item-wrap">
               <div className="kit-item-box">
                 <div className="kit-total-item">
-                  <div className="kit-item kit-item-name">
-                    日常組合(1個月份)YPPPPPP
+                {catDay && catDay.length > 0 ? (
+              <div className="kit-item kit-item-name">
+                    {catDay[0].kitCategoryName}
                   </div>
+              ) : (
+                <div className="kit-item kit-item-name"></div>
+              )}
                 </div>
                 <div className="kit-total-item">
                   <div className="kit-item">NT$</div>
-                  <div className="kit-item">2,000</div>
+                  <div className="kit-item">{smallTotalD}</div>
                 </div>
               </div>
             </div>
-
             <div className="kit-item-wrap">
               <div className="kit-item-box">
                 <div className="kit-total-item">
-                  <div className="kit-item kit-item-name">
-                    日常組合(1個月份)YPPPPPPPPPPP
-                  </div>
+                  {catDay && catEp.length > 0 ? (
+                    <div className="kit-item kit-item-name">
+                      {catEp[0].kitCategoryName}
+                    </div>
+                  ) : (
+                    <div className="kit-item kit-item-name"></div>
+                  )}
                 </div>
                 <div className="kit-total-item">
                   <div className="kit-item">NT$</div>
-                  <div className="kit-item">2,0000</div>
+                  <div className="kit-item">{smallTotalE}</div>
                 </div>
               </div>
             </div>
@@ -42,7 +51,7 @@ function SummaryBig(props) {
             <div className="kit-total">總計</div>
             <div className="kit-total-price">
               <div className="kit-total kit-total-name">NT$</div>
-              <div className="kit-total kit-total-red">2,200</div>
+              <div className="kit-total kit-total-red">{total}</div>
             </div>
           </div>
         </div>

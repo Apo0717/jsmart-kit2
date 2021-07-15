@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import LunarPhaseNavbar from '../../component/LunarPhaseNavbar'
+import Footer from '../../component/Footer'
 import OrderDailySet from './component/kit-shoppingList/OrderDailySet'
 import OrderEpSet from './component/kit-shoppingList/OrderEpSet'
 import SummaryBig from './component/kit-shoppingList/SummaryBig'
@@ -13,7 +15,7 @@ function KitShoppingList() {
   const [shoppingItemEp, setShoppingItemEp] = useState([]) //環保組合商品Cat:4~6
   const [catDay, setCatDay] = useState([]) //日常種類Cat:1~3
   const [catEp, setCatEp] = useState([]) //環保種類Cat:4~6
-  const [handle,setHandle] = useState() //控制下方的元件叉叉
+  const [handle, setHandle] = useState() //控制下方的元件叉叉
   async function getKitFromServer() {
     // 開啟載入指示
     setDataLoading(true)
@@ -98,11 +100,12 @@ function KitShoppingList() {
     // 設定資料
   }
 
-  //渲染畫面就呼叫
+  //渲染畫面（更動）就呼叫
   useEffect(() => {
     getKitFromServer()
     getKitCatServer()
     getSetLocalstorage()
+    sumTotal()
   }, [])
 
   //呼叫對應上頁localStorage拿到的值，與資料庫的kitCategory比對，相等的話就叫出那組資料庫
@@ -114,13 +117,15 @@ function KitShoppingList() {
     console.log('香蕉2號///', kitCategoryB)
   }
 
-  //計算總價的方式
-  //因為週期的關係，一開始可能陣列裡面沒有值，所以要判斷他是陣列&&有值的時候才行動
-
-  // console.log('父元件的總價計算',sum(shoppingItemDay))
+  const sumTotal = () => {
+    let allTotal = Number(smallTotalD + smallTotalE)
+    setTotal(allTotal.toLocaleString('en-US'))
+    console.log('總金額', allTotal)
+  }
 
   return (
     <>
+      <LunarPhaseNavbar />
       {/* <!-- kit-shoppingList --> */}
       <div className="container">
         {/* <!-- 最上區塊的TITLE語 --> */}
@@ -144,10 +149,18 @@ function KitShoppingList() {
           setSmallTotalE={setSmallTotalE}
         />
         {/* <!-- 下方總計 --> */}
-        <SummaryBig total={total} setTotal={setTotal} />
+        <SummaryBig
+          catDay={catDay}
+          catEp={catEp}
+          smallTotalD={smallTotalD}
+          smallTotalE={smallTotalE}
+          total={total}
+          setTotal={setTotal}
+        />
         {/* <!-- 其他選擇＋前往購買按鈕 --> */}
         <BtnGreenShopping />
       </div>
+      <Footer />
     </>
   )
 }

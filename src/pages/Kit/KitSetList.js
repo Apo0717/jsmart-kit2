@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import LunarPhaseNavbar from '../../component/LunarPhaseNavbar'
+import Footer from '../../component/Footer'
 import DailySet from './component/kit-setList/DailySet'
 import EpSet from './component/kit-setList/EpSet'
 import BtnGreenBig from './component/kit-setList/BtnGreenBig'
@@ -138,6 +140,7 @@ function KitSetList() {
 
   return (
     <>
+      <LunarPhaseNavbar />
       {/* <!-- kit-setList --> */}
       <div className="container">
         <DailySet
@@ -151,6 +154,7 @@ function KitSetList() {
           <BtnGreenBig goShoppingList={goShoppingList} />
         </Link>
       </div>
+      <Footer />
     </>
   )
 }

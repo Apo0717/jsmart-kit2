@@ -1,7 +1,7 @@
 /* 最上區塊的TITLE語 */
 .kit-shopping-list-title {
   text-align: center;
-  margin: 210px 0 65px 0;
+  margin: 50px 0 50px 0;
 }
 
 .kit-shopping-list-bg {
@@ -200,15 +200,35 @@
   margin: 5px 0;
 }
 
-/* 按鈕 */
+/* Day按鈕 */
 .kit-dropdown-text-center {
   text-align: center !important;
+}
+
+/* Day按鈕-2 */
+.btn-border-s2 {
+  width: 160px;
+  height: 36px;
+  margin: 0 10px;
+  line-height: 36px;
+  border-radius: 2rem;
+  background: none;
+  border: 1px solid #383844;
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+}
+/* 按鈕被選擇 */
+.btn-border-s-click {
+  transition: 0.3s;
+  background-color: #383844;
+  color: #f7f7ee;
 }
 
 .kit-dropdown-text-center:hover {
   background-color: #fdd2bb !important;
 }
-
 
 .kit-shopping-list-btn {
   display: flex;
