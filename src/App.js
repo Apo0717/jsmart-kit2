@@ -1,10 +1,7 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import React from 'react'
 import KitIndex from './pages/Kit/KitIndex'
-import KitTest1 from './pages/Kit/KitTest1'
-import KitTest2 from './pages/Kit/KitTest2'
-import KitTest3 from './pages/Kit/KitTest3'
-import KitTest4 from './pages/Kit/KitTest4'
+import KitTest from './pages/Kit/KitTest'
 import KitSetList from './pages/Kit/KitSetList'
 import KitShoppingList from './pages/Kit/KitShoppingList'
 import Home from './pages/Home'
@@ -23,16 +20,7 @@ function App() {
             {/* <KitIndex /> */}
           </Route>
           <Route path="/kitTest1">
-            <KitTest1 />
-          </Route>
-          <Route path="/kitTest2">
-            <KitTest2 />
-          </Route>
-          <Route path="/kitTest3">
-            <KitTest3 />
-          </Route>
-          <Route path="/kitTest4">
-            <KitTest4 />
+            <KitTest />
           </Route>
           <Route path="/kitSetList">
             <KitSetList />

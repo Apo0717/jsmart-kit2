@@ -143,13 +143,9 @@ function KitSetList() {
       <LunarPhaseNavbar />
       {/* <!-- kit-setList --> */}
       <div className="container">
-        <DailySet
-          functionA={functionA}
-          objDaily={objDaily}
-          setObjDaily={setObjDaily}
-        />
+        <DailySet functionA={functionA} objDaily={objDaily} />
         <hr />
-        <EpSet functionB={functionB} objEp={objEp} setObjEp={setObjEp} />
+        <EpSet functionB={functionB} objEp={objEp} />
         <Link to="/kitShoppingList">
           <BtnGreenBig goShoppingList={goShoppingList} />
         </Link>

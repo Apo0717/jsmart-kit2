@@ -14,13 +14,13 @@ function SummaryBig(props) {
             <div className="kit-item-wrap">
               <div className="kit-item-box">
                 <div className="kit-total-item">
-                {catDay && catDay.length > 0 ? (
-              <div className="kit-item kit-item-name">
-                    {catDay[0].kitCategoryName}
-                  </div>
-              ) : (
-                <div className="kit-item kit-item-name"></div>
-              )}
+                  {catDay && catDay.length > 0 ? (
+                    <div className="kit-item kit-item-name">
+                      {catDay[0].kitCategoryName}
+                    </div>
+                  ) : (
+                    <div className="kit-item kit-item-name"></div>
+                  )}
                 </div>
                 <div className="kit-total-item">
                   <div className="kit-item">NT$</div>

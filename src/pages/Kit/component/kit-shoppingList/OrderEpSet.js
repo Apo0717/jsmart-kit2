@@ -4,14 +4,7 @@ import SummarySmallEp from './SummarySmallEp'
 import RightBtn from '../kit-shoppingList/RightBtn'
 
 function OrderEpSet(props) {
-  const {
-    shoppingItemEp,
-    setShoppingItemEp,
-    catEp,
-    setCatEp,
-    smallTotalE,
-    setSmallTotalE,
-  } = props
+  const { shoppingItemEp, catEp, sumEpSmall, smallTotalE } = props
   return (
     <>
       <TiPlus className="TiPlus-r" size="100px" />
@@ -36,9 +29,8 @@ function OrderEpSet(props) {
             {/* <!-- 右上方總計區塊 --> */}
             <SummarySmallEp
               shoppingItemEp={shoppingItemEp}
-              setShoppingItemEp={setShoppingItemEp}
               smallTotalE={smallTotalE}
-              setSmallTotalE={setSmallTotalE}
+              sumEpSmall={sumEpSmall}
             />
           </div>
           <div className="kit-shopping-list-product">
