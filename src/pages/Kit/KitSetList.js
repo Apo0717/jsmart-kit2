@@ -75,7 +75,12 @@ function KitSetList() {
           ...e,
           // obj到時候要放觸發函式的變數，也就是e
           // 原本的 e 裡的 kitCategory 與被觸發的 obj.kitCategory 相同時，表示被按下 click:true
-          click: e.kitCategory === obj.kitCategory ? true : false,
+          click:
+            e.kitCategory === obj.kitCategory
+              ? !e.click
+                ? true
+                : false
+              : false,
         }
       }),
     })
@@ -86,7 +91,6 @@ function KitSetList() {
     console.log('obj', obj)
     //obj在陣列中的索引順序
     console.log('key', key)
-    //ObjDaily被改變
     //ObjDaily被按了objEp才能被選擇
     if (objDaily.key !== null) {
       //ObjDaily被改變
@@ -145,7 +149,7 @@ function KitSetList() {
       <div className="container">
         <DailySet functionA={functionA} objDaily={objDaily} />
         <hr />
-        <EpSet functionB={functionB} objEp={objEp} />
+        <EpSet functionB={functionB} objEp={objEp} objDaily={objDaily} />
         <Link to="/kitShoppingList">
           <BtnGreenBig goShoppingList={goShoppingList} />
         </Link>
