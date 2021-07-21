@@ -10,6 +10,9 @@ import SvgSetEp from './component/svg-component/SvgSetEp'
 import Swal from 'sweetalert2'
 
 function KitTest1() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const [test, setTest] = useState([
     {
       qId: 1,

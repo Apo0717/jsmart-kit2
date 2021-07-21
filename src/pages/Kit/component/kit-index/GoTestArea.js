@@ -3,7 +3,6 @@ import BtnGoTest from './BtnGoTest'
 import BtnGoSet from './BtnGoSet'
 import { Link } from 'react-router-dom'
 // AOS
-import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 function GoTestArea() {

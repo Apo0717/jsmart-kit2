@@ -168,7 +168,6 @@ function KitShoppingList() {
       threeBtn.arr[0].click = true
       arrthreeBtn = threeBtn.arr[0]
       setCatEp(arrthreeBtn)
-
     }
     setCuteBtn(threeBtn)
     // console.log('這邊///', cuteBtn)
@@ -324,6 +323,7 @@ function KitShoppingList() {
       setClickName(s)
     }
     setClickMon(o)
+    sumEpSmall()
 
     // console.log('辛酸淚滴', o, s)
   }
