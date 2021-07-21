@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import LunarPhaseNavbar from '../../component/LunarPhaseNavbar'
-import Footer from '../../component/Footer'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
+import Footer from '../../components/Footer'
 import DailySet from './component/kit-setList/DailySet'
 import EpSet from './component/kit-setList/EpSet'
 import BtnGreenBig from './component/kit-setList/BtnGreenBig'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function KitSetList() {
   const [objDaily, setObjDaily] = useState({
@@ -140,6 +141,15 @@ function KitSetList() {
     } else {
       localStorage.removeItem('kitCategoryB')
     }
+    Swal.fire({
+      position: 'center',
+      // icon: 'question',
+      width: '30%',
+      imageUrl: '/img/Kit/1103-confetti-outline.gif',
+      title: '這是你的專屬優惠',
+      showConfirmButton: false,
+      timer: 1500,
+    })
   }
 
   return (
@@ -151,7 +161,7 @@ function KitSetList() {
         <hr />
         <EpSet functionB={functionB} objEp={objEp} objDaily={objDaily} />
         <Link to="/kitShoppingList">
-          <BtnGreenBig goShoppingList={goShoppingList} />
+          <BtnGreenBig goShoppingList={goShoppingList} objDaily={objDaily} />
         </Link>
       </div>
       <Footer />

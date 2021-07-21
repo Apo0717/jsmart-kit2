@@ -12,14 +12,14 @@ function App() {
     <Router>
       <>
         <Link to="/kitIndex">訂閱首頁/</Link>
-        <Link to="/kitTest1">測驗1/</Link>
+        <Link to="/kitTest">測驗1/</Link>
         <Link to="/kitSetList">訂閱組合/</Link>
         <Link to="/kitShoppingList">組合訂單</Link>
         <Switch>
           <Route path="/kitIndex" component={KitIndex}>
             {/* <KitIndex /> */}
           </Route>
-          <Route path="/kitTest1">
+          <Route path="/kitTest">
             <KitTest />
           </Route>
           <Route path="/kitSetList">

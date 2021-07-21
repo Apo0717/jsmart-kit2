@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import LunarPhaseNavbar from '../../component/LunarPhaseNavbar'
-import Footer from '../../component/Footer'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
+import Footer from '../../components/Footer'
 import OrderDailySet from './component/kit-shoppingList/OrderDailySet'
 import OrderEpSet from './component/kit-shoppingList/OrderEpSet'
 import SummaryBig from './component/kit-shoppingList/SummaryBig'
@@ -14,6 +14,7 @@ import { HiOutlineShoppingBag } from 'react-icons/hi'
 function KitShoppingList() {
   const [dataLoading, setDataLoading] = useState(false)
   const [smallTotalD, setSmallTotalD] = useState() //日常右上方小總計
+  const [smallPriceD, setSmallPriceD] = useState() //未經月份加成的價格
   const [smallTotalE, setSmallTotalE] = useState() //環保右上方小總計
   const [total, setTotal] = useState(0) //下方大總計
   const [shoppingItemDay, setShoppingItemDay] = useState([]) //日常組合商品Cat:1~3
@@ -28,7 +29,7 @@ function KitShoppingList() {
         kitCategoryName: '環保組合-布衛生棉',
         cat: 4,
         icon: <SvgClothPad className="btn-cloth-pad" />,
-        click: false,
+        click: true,
       },
       {
         kitCategoryName: '環保組合-月亮杯',
@@ -82,12 +83,18 @@ function KitShoppingList() {
     // console.log('shoppingItem', shoppingItemDay)
     //
 
-    //資料物件-環保
-    let kitSetItemEp = allData.data.filter(
-      (Item) => Item.kitCategory == kitCategoryB
-    )
+    // //資料物件-環保
+    if (kitCategoryB) {
+      let kitSetItemEp = allData.data.filter(
+        (Item) => Item.kitCategory == kitCategoryB
+      )
+      setShoppingItemEp(kitSetItemEp)
+    } else {
+      let kitSetItemEp = allData.data.filter((Item) => Item.kitCategory == 4)
 
-    setShoppingItemEp(kitSetItemEp)
+      setShoppingItemEp(kitSetItemEp)
+    }
+
     // console.log('filter資料庫哦', kitSetItemEp)
     //++++++++++++++++++++++++++++
     //旁邊三個小可愛按鈕的物件內容
@@ -100,7 +107,7 @@ function KitShoppingList() {
           kitCategoryName: '環保組合-布衛生棉',
           cat: 4,
           icon: <SvgClothPad className="btn-cloth-pad" />,
-          click: false,
+          click: true,
         },
         {
           kitCategoryName: '環保組合-月亮杯',
@@ -140,7 +147,13 @@ function KitShoppingList() {
         // 因為 e.cat == threeBtn.clickKey
         // .indexOf()判斷符合條件的物件是陣列中的第幾個，()內必須是數字才能做判斷
         .indexOf(Number(kitCategoryB))
-      console.log('threeBtn.clickKey', threeBtn.clickKey)
+      // console.log('threeBtn.clickKey', threeBtn.clickKey)
+      console.log('threeBtnu有什麼', threeBtn)
+
+      threeBtn.arr = threeBtn.arr.map((e) => {
+        return { ...e, click: true ? false : false }
+      })
+
       threeBtn.arr[threeBtn.clickKey].click = true
       // console.log('threeBtn.clickKey拿到什麼', threeBtn.clickKey)
       arrthreeBtn = threeBtn.arr[threeBtn.clickKey]
@@ -149,6 +162,13 @@ function KitShoppingList() {
       // threeBtn.show = false
       let dleteBB = false
       setHandle(dleteBB)
+      threeBtn.arr = threeBtn.arr.map((e) => {
+        return { ...e, click: true ? false : false }
+      })
+      threeBtn.arr[0].click = true
+      arrthreeBtn = threeBtn.arr[0]
+      setCatEp(arrthreeBtn)
+
     }
     setCuteBtn(threeBtn)
     // console.log('這邊///', cuteBtn)
@@ -160,8 +180,6 @@ function KitShoppingList() {
       // show: true,
       // 判斷是誰被點
       clickKey: k,
-      // e 為 objA.arr 裡的 1 個 {}
-      // 這邊的 map 是為了複製目標原來的陣列物件
       arr: cuteBtn.arr.map((e) => {
         return {
           ...e,
@@ -197,7 +215,10 @@ function KitShoppingList() {
         setHandle(dleteAA)
       }
       console.log('刪除用的cuteBtn', cuteBtn)
+      //需要有監聽到動作就再次判斷handle狀態
       setCuteBtn(btnDlete)
+      sumEpSmall()
+      sumTotal(handle)
     }
   }
 
@@ -234,7 +255,6 @@ function KitShoppingList() {
       (Cat) => Cat.kitCategoryId == kitCategoryA
     )
     setCatDay(kitCatDaily)
-    console.log('filter分類資料庫哦', kitCatDaily)
   }
   //++++++++++++++++++++++++++++
   //呼叫對應上頁localStorage拿到的值，與資料庫的kitCategory比對，相等的話就叫出那組資料庫
@@ -246,17 +266,20 @@ function KitShoppingList() {
   }
   //++++++++++++++++++++++++++++
   //渲染畫面（更動）就呼叫
+
   useEffect(() => {
     deleteFunction()
   }, [cuteBtn])
+
   useEffect(() => {
     getKitFromServer()
     getKitCatServer()
     getSetLocalstorage()
-    sumEpSmall()
     sumDaySmall()
+    sumEpSmall()
     // console.log('DidUpdate', smallTotalD)
   }, [])
+
   useEffect(() => {
     sumTotal()
     // console.log('DidUpdate', smallTotalD)
@@ -309,11 +332,14 @@ function KitShoppingList() {
   //日常右上小總計
   const sumDaySmall = (Item) => {
     let total = 0
+    let total2 = 0
     //本人(true為存在所以要大於0)＋本人的長度
     if (Item && Item.length > 0) {
       for (let i = 0; i < Item.length; i++) {
         total += Item[i].itemPrice * clickMon
+        total2 += Item[i].itemPrice
       }
+      setSmallPriceD(total2 * 0.8)
       setSmallTotalD((total * 0.8).toLocaleString('en-US'))
       return total.toLocaleString('en-US')
     }
@@ -339,14 +365,25 @@ function KitShoppingList() {
   }
 
   //下方大總計
-  const sumTotal = () => {
+  const sumTotal = (h) => {
+    console.log('大總計振作點')
     // console.log('測試', sumEpSmall(shoppingItemEp))
     // 先把千位符的','去掉，然後轉數字Number()
-    // console.log('判斷是什麼', smallTotalD, smallTotalE)
+    console.log('判斷是什麼', smallTotalD, smallTotalE)
     if (smallTotalD) {
+      console.log('handle', h)
       if (smallTotalE) {
         let moneyD = smallTotalD.replace(/,/g, '')
-        let moneyE = smallTotalE.replace(/,/g, '')
+        let moneyE = 0
+        if (h !== undefined) {
+          if (h) {
+            moneyE = 0
+          } else {
+            moneyE = smallTotalE.replace(/,/g, '')
+          }
+        } else {
+          moneyE = smallTotalE.replace(/,/g, '')
+        }
         let allTotal = Number(moneyD) + Number(moneyE)
         setTotal(allTotal.toLocaleString('en-US'))
       } else {
@@ -359,6 +396,47 @@ function KitShoppingList() {
   }
 
   //++++++++++++++++++++++++++++
+  // 前往結帳紀錄localStorage
+  // localStorage傳的資料:
+  // id: itemId, //傳itemId
+  // name: itemName,
+  // amount: qty, //傳Qty
+  // price: itemPrice, //傳單價
+  // image: itemImg, //傳img
+
+  const sentLocal = () => {
+    console.log('catDay', catDay)
+    let moneyD = smallPriceD
+    let moneyE = smallTotalE.replace(/,/g, '')
+
+    let kitcartD = {
+      id: '1',
+      name: catDay[0].kitCategoryName,
+      amount: clickMon,
+      price: Number(moneyD),
+      itemImg: `/img/Kit/${shoppingItemDay[0].kitImg}`,
+    }
+    let kitcartDE = [
+      {
+        id: '1',
+        name: catDay[0].kitCategoryName,
+        amount: clickMon,
+        price: Number(moneyD),
+        itemImg: `/img/Kit/${shoppingItemDay[0].kitImg}`,
+      },
+      {
+        id: '2',
+        name: catEp.kitCategoryName,
+        amount: 1,
+        price: Number(moneyE),
+        itemImg: `/img/Kit/${shoppingItemEp[0].kitImg}`,
+      },
+    ]
+    localStorage.setItem('kitcart', JSON.stringify(kitcartD))
+    if (handle) {
+      localStorage.setItem('kitcart', JSON.stringify(kitcartDE))
+    }
+  }
 
   //++++++++++++++++++++++++++++
   return (
@@ -423,7 +501,7 @@ function KitShoppingList() {
           total={total}
         />
         {/* <!-- 其他選擇＋前往購買按鈕 --> */}
-        <BtnGreenShopping />
+        <BtnGreenShopping sentLocal={sentLocal} />
       </div>
       <Footer />
     </>

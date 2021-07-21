@@ -1,7 +1,7 @@
 import React from 'react'
 import { TiPlus } from 'react-icons/ti'
 import SummarySmallEp from './SummarySmallEp'
-import RightBtn from '../kit-shoppingList/RightBtn'
+import RightBtn from './RightBtn'
 
 function OrderEpSet(props) {
   const {
@@ -17,7 +17,7 @@ function OrderEpSet(props) {
   return (
     <>
       <TiPlus className="TiPlus-r" size="100px" />
-      <div className="kit-shopping-list-bg">
+      <div className="kit-shopping-list-bg-ep">
         {/* <!-- 刪除鈕 --> */}
         <div
           className="delete"
@@ -70,7 +70,7 @@ function OrderEpSet(props) {
                 {index === shoppingItemEp.length - 1 ? (
                   <div></div>
                 ) : (
-                  <TiPlus className="TiPlus" size="90px" />
+                  <TiPlus className="TiPlus" size="85px" />
                 )}
               </div>
             ))}

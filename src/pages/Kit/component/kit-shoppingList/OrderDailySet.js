@@ -1,6 +1,6 @@
 import React from 'react'
 import { TiPlus } from 'react-icons/ti'
-import SummarySmallDay from '../kit-shoppingList/SummarySmallDay'
+import SummarySmallDay from './SummarySmallDay'
 import BtnMonth from './BtnMonth'
 
 function OrderDailySet(props) {
@@ -21,7 +21,7 @@ function OrderDailySet(props) {
 
   return (
     <>
-      <div className="kit-shopping-list-bg">
+      <div className="kit-shopping-list-bg-day">
         <div className="kit-shopping-list-wrap">
           {/* <!-- 組合名稱＋右上方總計 --> */}
           <div className="kit-shopping-list-set-title">
@@ -65,7 +65,7 @@ function OrderDailySet(props) {
                 {index === shoppingItemDay.length - 1 ? (
                   <div></div>
                 ) : (
-                  <TiPlus className="TiPlus" size="90px" />
+                  <TiPlus className="TiPlus" size="85px" />
                 )}
               </div>
             ))}

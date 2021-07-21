@@ -21,7 +21,7 @@
 
 /* 前導文區塊 */
 .kit-index-info-area {
-  margin: 150px 0 180px;
+  margin: 150px 0 80px;
   text-align: center;
 }
 
@@ -96,7 +96,8 @@
 /* 前往測驗區選擇 */
 .kit-index-go-text-area {
   background: linear-gradient(#f7f7ee, #fff, #f7f7ee);
-  margin: 60px 0;
+  // margin: 60px 0;
+  // display: block;
 }
 
 .kit-index-go-text-box {

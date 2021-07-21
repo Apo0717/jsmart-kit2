@@ -44,7 +44,7 @@
   // background-color: #fdd2bb;
   border-radius: 20px;
   box-shadow: 0px 3px 6px #e0e0de;
-  background: url('http://localhost:3333/img/Kit/test04.jpg') no-repeat;
+  // background: url('http://localhost:3333/img/Kit/test04.jpg') no-repeat;
   overflow: hidden;
 }
 
@@ -117,8 +117,28 @@
   margin-left: -25px;
 }
 
-.btn-ep {
+// .btn-ep {
+//   margin: 5px 0;
+// }
+
+.kit-link a {
+  width: 160px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 2rem;
+  background: none;
+  border: 1px solid #383844;
+  font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
   margin: 5px 0;
+}
+
+.kit-link a:hover {
+  transition: 0.3s;
+  background-color: #383844;
+  color: #f7f7ee !important;
 }
 
 /* 下方綠色按鈕 */
